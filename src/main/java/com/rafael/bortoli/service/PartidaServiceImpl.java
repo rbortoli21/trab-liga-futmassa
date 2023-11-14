@@ -44,6 +44,10 @@ public class PartidaServiceImpl implements PartidaService {
             String error = "Os clubes da partida não podem ser os mesmos";
             response.getErrors().add(error);
         }
+        if(partidaRequest.getNumeroGolsCasa() < 0 ||  partidaRequest.getNumeroGolsFora() < 0){
+            String error = "O número de gols deve ser maior que 0.";
+            response.getErrors().add(error);
+        }
         if(!response.getErrors().isEmpty())
             return response;
 
