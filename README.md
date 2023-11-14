@@ -24,26 +24,30 @@ No terminal execute o comando na pasta desejada
 - Se estiver usando HTTPS: 
 
 ```bash
-   git clone https://github.com/FlavioZanoni/booksFag.git
+   git clone https://github.com/rbortoli21/trab-liga-futmassa.git
 ```
 
 - Se estiver usando SSH: 
 
 ```bash
-   git clone git@github.com:FlavioZanoni/booksFag.git
+   git clone git@github.com:rbortoli21/trab-liga-futmassa.git
 ```
 
 ### De cd até o projeto
 
 ```bash
-   cd booksFag
+   cd trab-liga-futmassa
 ```
 ## Maven
 Digite o comando abaixo para rodar o projeto com o maven. Lembrando que dessa forma você precisará estar com o [JAVA_HOME](https://confluence.atlassian.com/confbr1/configurando-a-variavel-java_home-no-windows-933709538.html) configurado.
 
+```
 ./mvnw spring-boot:run
+```
 
-[http://localhost:8080](http://localhost:8080)
+Link da aplicação: [http://localhost:8080](http://localhost:8080)
+
+## Funcionamento
 
 ### 1. Listagem da tabela
 
@@ -62,8 +66,8 @@ Digite o comando abaixo para rodar o projeto com o maven. Lembrando que dessa fo
 - **Descrição**: Redireciona para a criação de uma nova partida.
 ![image](https://github.com/rbortoli21/trab-liga-futmassa/assets/71893509/1ff33f69-5bac-43b3-abc3-094e3e143d2e)
 ![image](https://github.com/rbortoli21/trab-liga-futmassa/assets/71893509/94664d25-8a27-4f87-94bc-bbc4841405bd)
-Dois clubes podem ser selecionados juntamente com a quantidade de gols que cada clube fez na partida que será cadastrada.
 
+Dois clubes podem ser selecionados juntamente com a quantidade de gols que cada clube fez na partida que será cadastrada.
 Exemplo: Palmeiras 2 x Corinthians 0
 
 ### 4. Listar últimas partidas
