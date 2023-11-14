@@ -20,7 +20,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String viewHomePage(Model model) {
-        List<Clube> clubes = clubeService.getAll();
+        List<Clube> clubes = clubeService.getAllSorted();
         model.addAttribute("listClubes", clubes);
 
         return "index";

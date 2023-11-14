@@ -20,6 +20,7 @@ public class Partida {
     @Column
     private Integer numeroGolsFora;
 
+
     public long getId() {
         return id;
     }

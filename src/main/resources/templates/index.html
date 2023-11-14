@@ -13,22 +13,35 @@
 <body>
 
 <div class="container my-2">
-    <h1 class="mb-3">Liga Futmassa</h1>
-    <div class="row container my-2 justify-content-between">
-        <a style="color:inherit;" th:href="@{/showNewClubeForm}">
-            <button class="btn btn-success mb-3">Adicionar Clube</button>
-        </a>
-        <a style="color:inherit;" th:href="@{/showNewPartidaForm}">
-            <button class="btn btn-success mb-3 justify-content-end">
-                Nova partida
-            </button>
-        </a>
-
+    <h1 class="mb-4">Liga Futmassa</h1>
+    <div class="container my-2">
+        <div class="d-flex">
+            <div class="mr-auto p-2">
+                <a style="color:inherit;" th:href="@{/showNewClubeForm}">
+                    <button class="btn btn-outline-success mb-3">Adicionar Clube</button>
+                </a>
+            </div>
+            <div class="p-2">
+                <a style="color:inherit;" th:href="@{/showLastPartidas}">
+                    <button class="btn btn-outline-success mb-3 justify-content-end">
+                        Últimas Partidas
+                    </button>
+                </a>
+            </div>
+            <div class="p-2">
+                <a style="color:inherit;" th:href="@{/showNewPartidaForm}">
+                    <button class="btn btn-success mb-3 justify-content-end">
+                        Nova partida
+                    </button>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="row container my-2">
-        <table border="1" class="table table-hover table-responsive-md">
+        <table class="table table-hover table-responsive-md">
             <thead>
             <tr>
+                <th></th>
                 <th>Clube</th>
                 <th>J</th>
                 <th>V</th>
@@ -42,6 +55,7 @@
             </thead>
             <tbody>
             <tr th:each="clube : ${listClubes}">
+                <th th:text="${listClubes.indexOf(clube) + 1}"></th>
                 <td class="col-md-3" th:text="${clube.nome}"></td>
                 <td class="col-1" th:text="${clube.jogos}"></td>
                 <td class="col-1" th:text="${clube.vitorias}"></td>

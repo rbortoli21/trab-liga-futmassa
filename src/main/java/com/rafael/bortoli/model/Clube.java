@@ -38,6 +38,37 @@ public class Clube {
     @Column
     private Integer pontos = 0;
 
+    public void incrementJogos() {
+        jogos++;
+    }
+
+    public void incrementVitorias() {
+        vitorias++;
+        pontos += 3;
+    }
+
+    public void incrementDerrotas() {
+        derrotas++;
+    }
+
+    public void incrementEmpates() {
+        empates++;
+        pontos += 1;
+    }
+
+    public void incrementGolsFeitos(Integer gols) {
+        golsFeitos += gols;
+    }
+
+    public void incrementGolsSofridos(Integer gols) {
+        golsSofridos += gols;
+    }
+
+    public Integer calcularSaldoGols() {
+        saldoGols = golsFeitos - golsSofridos;
+        return saldoGols;
+    }
+
     public long getId() {
         return id;
     }

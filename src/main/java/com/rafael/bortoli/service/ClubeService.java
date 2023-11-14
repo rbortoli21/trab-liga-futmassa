@@ -7,8 +7,9 @@ import org.springframework.data.domain.Page;
 
 public interface ClubeService {
 	List<Clube> getAll();
-	void save(Clube clube);
+	List<Clube> getAllSorted();
 	Clube findById(long id);
+	void save(Clube clube);
 	void delete(long id);
-	Page<Clube> find(int pageNo, int pageSize, String sortField, String sortDirection);
+	void flush();
 }

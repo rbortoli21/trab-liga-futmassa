@@ -10,42 +10,49 @@
 </head>
 <body>
 <div class="container">
-    <h1>Liga futmassa</h1>
+    <h1 class="mb-4">Liga futmassa</h1>
     <hr>
     <h2 class="mb-4">Nova Partida</h2>
-    <div class="col-6">
-        <form action="#" th:action="@{/savePartida}" th:object="${partida}"
-              method="POST">
-            <div class="row mb-2">
-                <div class="col-6">
-                    <label class="mr-2" for="clubeCasa">Clube de casa:</label>
-                    <div class="d-inline-flex">
-                        <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeCasa">
-                            <option th:each="clube : ${clubes}" th:value="${clube}" th:text="${clube.nome}"></option>
-                        </select>
-                        <input type="text" th:field="*{numeroGolsCasa}"
-                               placeholder="Placar" class="text-center form-control col-sm-4">
-                    </div>
+    <form action="#" th:action="@{/savePartida}" th:object="${partida}"
+          method="POST">
+        <div class="row mb-2">
+            <div class="col-6">
+                <label class="mr-2" for="clubeCasa">Clube de casa:</label>
+                <div class="d-inline-flex">
+                    <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeCasa"
+                            th:field="${partida.clubeCasaId}">
+                        <option th:each="clube : ${clubes}" th:value="${clube.id}" th:text="${clube.nome}"></option>
+                    </select>
+                    <input type="text" th:field="*{numeroGolsCasa}"
+                           placeholder="Placar" class="text-center form-control col-sm-4">
                 </div>
-                <div class="col-6">
-                    <label class="mr-2" for="clubeFora">Clube de fora:</label>
-                    <div class="d-inline-flex">
-                        <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeFora">
-                            <option th:each="clube : ${clubes}" th:value="${clube}" th:text="${clube.nome}"></option>
-                        </select>
-                        <input type="text" th:field="*{numeroGolsFora}"
-                               placeholder="Placar" class="text-center form-control col-sm-4">
-                        <div/>
-                    </div>
+            </div>
+            <div class="col-6">
+                <label class="mr-2" for="clubeFora">Clube de fora:</label>
+                <div class="d-inline-flex">
+                    <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeFora"
+                            th:field="${partida.clubeForaId}">
+                        <option th:each="clube : ${clubes}" th:value="${clube.id}" th:text="${clube.nome}"></option>
+                    </select>
+                    <input required type="text" th:field="*{numeroGolsFora}"
+                           placeholder="Placar" class="text-center form-control col-sm-4">
+                    <div/>
                 </div>
-                <div class="row justify-content-end mt-2">
-                    <button type="submit" class="btn btn-success"> Salvar</button>
-                </div>
-        </form>
-    </div>
-    <hr>
-
-    <a th:href="@{/}"> Voltar para a tabela</a>
+            </div>
+            <div class="row justify-content-end mt-2">
+                <button type="submit" class="btn btn-success"> Salvar</button>
+            </div>
+        </div>
+    </form>
 </div>
+<hr>
+
+<a th:href="@{/}"> Voltar para a tabela</a>
+<div th:if="${errors != null}" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+     data-delay="3000">
+    <p class="text-danger" th:each="error : ${errors}" th:text="${error}"></p>
+</div>
+
 </body>
 </html>
+
