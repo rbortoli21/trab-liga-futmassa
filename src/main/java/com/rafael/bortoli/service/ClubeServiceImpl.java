@@ -3,6 +3,7 @@ package com.rafael.bortoli.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.rafael.bortoli.dtos.ClubeResponseDto;
 import com.rafael.bortoli.model.Clube;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,12 +44,32 @@ public class ClubeServiceImpl implements ClubeService {
     }
 
     @Override
-    public void delete(long id) {
-        clubeRepository.deleteById(id);
+    public ClubeResponseDto delete(long id) {
+        ClubeResponseDto responseDto = new ClubeResponseDto();
+        try {
+            clubeRepository.deleteById(id);
+        } catch (Exception exception) {
+            responseDto.getErrors().add("Não é possível deletar um clube que já participou de alguma partida.");
+        }
+        return responseDto;
     }
 
     @Override
     public void flush() {
         clubeRepository.flush();
+    }
+
+    @Override
+    public Clube edit(Long id, Clube clube) {
+        Optional<Clube> clubeOptional = clubeRepository.findById(id);
+        Clube clubeOld = clubeOptional.orElse(null);
+
+        if (clube != null && clubeOld != null) {
+            if (clube.getNome() != null && !clube.getNome().isEmpty())
+                clubeOld.setNome(clube.getNome());
+        }
+        flush();
+
+        return clubeOld;
     }
 }

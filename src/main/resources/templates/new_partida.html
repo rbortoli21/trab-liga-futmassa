@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Employee Management System</title>
+    <title>Liga Futmassa - Nova Partida</title>
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -10,32 +10,32 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="mb-4">Liga futmassa</h1>
+    <h1 class="mb-4 text-center">Liga futmassa</h1>
     <hr>
     <h2 class="mb-4">Nova Partida</h2>
     <form action="#" th:action="@{/savePartida}" th:object="${partida}"
           method="POST">
-        <div class="row mb-2">
-            <div class="col-6">
+        <div class="d-flex justify-content-center mb-2">
+            <div class="col-4">
                 <label class="mr-2" for="clubeCasa">Clube de casa:</label>
-                <div class="d-inline-flex">
-                    <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeCasa"
+                <div class="d-flex">
+                    <select class="form-select pl-2 pr-2 pb-1 pt-1 mr-2" id="clubeCasa"
                             th:field="${partida.clubeCasaId}">
                         <option th:each="clube : ${clubes}" th:value="${clube.id}" th:text="${clube.nome}"></option>
                     </select>
-                    <input type="text" th:field="*{numeroGolsCasa}"
-                           placeholder="Placar" class="text-center form-control col-sm-4">
+                    <input type="number" th:field="*{numeroGolsCasa}"
+                           placeholder="Gols" class="text-center form-control col-sm-4">
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <label class="mr-2" for="clubeFora">Clube de fora:</label>
-                <div class="d-inline-flex">
-                    <select class="form-select pl-2 pr-2 pb-1 pt-1" id="clubeFora"
+                <div class="d-flex">
+                    <select class="form-select pl-2 pr-2 pb-1 pt-1 mr-2" id="clubeFora"
                             th:field="${partida.clubeForaId}">
                         <option th:each="clube : ${clubes}" th:value="${clube.id}" th:text="${clube.nome}"></option>
                     </select>
-                    <input required type="text" th:field="*{numeroGolsFora}"
-                           placeholder="Placar" class="text-center form-control col-sm-4">
+                    <input required type="number" th:field="*{numeroGolsFora}"
+                           placeholder="Gols" class="text-center form-control col-sm-4">
                     <div/>
                 </div>
             </div>

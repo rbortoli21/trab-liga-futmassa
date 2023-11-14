@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Employee Management System</title>
+    <title>Liga Futmassa</title>
 
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -13,7 +13,7 @@
 <body>
 
 <div class="container my-2">
-    <h1 class="mb-4">Liga Futmassa</h1>
+    <h1 class="mb-4 text-center">Liga Futmassa</h1>
     <div class="container my-2">
         <div class="d-flex">
             <div class="mr-auto p-2">
@@ -24,7 +24,7 @@
             <div class="p-2">
                 <a style="color:inherit;" th:href="@{/showLastPartidas}">
                     <button class="btn btn-outline-success mb-3 justify-content-end">
-                        Últimas Partidas
+                        Ultimas Partidas
                     </button>
                 </a>
             </div>
@@ -37,8 +37,12 @@
             </div>
         </div>
     </div>
+    <div th:if="${errors != null}" class="toast" role="alert" aria-live="assertive" aria-atomic="true"
+         data-delay="3000">
+        <p class="text-danger" th:each="error : ${errors}" th:text="${error}"></p>
+    </div>
     <div class="row container my-2">
-        <table class="table table-hover table-responsive-md">
+        <table class="table table-hover align-items-center table-responsive-md">
             <thead>
             <tr>
                 <th></th>
@@ -65,6 +69,20 @@
                 <td class="col-1" th:text="${clube.golsSofridos}"></td>
                 <td class="col-1" th:text="${clube.saldoGols}"></td>
                 <td class="col-1" th:text="${clube.pontos}"></td>
+                <td>
+                    <a style="color:inherit;" th:href="@{'/showFormForUpdate/' + ${clube.id}}">
+                        <button class="btn btn-outline-warning text-warning">
+                            Editar
+                        </button>
+                    </a>
+                </td>
+                <td class="col-1">
+                    <a style="color:inherit;" th:href="@{'/deleteClube/' + ${clube.id}}">
+                        <button class="btn btn-danger text-white">
+                            Deletar
+                        </button>
+                    </a>
+                </td>
             </tr>
             </tbody>
         </table>

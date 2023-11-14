@@ -75,7 +75,8 @@ public class PartidaServiceImpl implements PartidaService {
 
         clubeService.flush();
 
-        partidaRepository.save(partidaMapper.toDomain(partidaRequest));
+        Partida partida = partidaRepository.save(partidaMapper.toDomain(partidaRequest));
+        response.setPartida(partida);
 
         return response;
     }

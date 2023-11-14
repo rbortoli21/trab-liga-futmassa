@@ -1,0 +1,16 @@
+com\rafael\bortoli\model\Clube.class
+com\rafael\bortoli\model\Partida.class
+com\rafael\bortoli\service\PartidaServiceImpl.class
+com\rafael\bortoli\repository\ClubeRepository.class
+com\rafael\bortoli\service\PartidaService.class
+com\rafael\bortoli\dtos\PartidaRequestDto.class
+com\rafael\bortoli\dtos\ClubeResponseDto.class
+com\rafael\bortoli\mapper\PartidaMapper.class
+com\rafael\bortoli\controller\PartidaController.class
+com\rafael\bortoli\controller\HomeController.class
+com\rafael\bortoli\dtos\PartidaResponseDto.class
+com\rafael\bortoli\LigaFutmassaApplication.class
+com\rafael\bortoli\service\ClubeServiceImpl.class
+com\rafael\bortoli\controller\ClubeController.class
+com\rafael\bortoli\repository\PartidaRepository.class
+com\rafael\bortoli\service\ClubeService.class

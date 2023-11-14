@@ -1,11 +1,15 @@
 package com.rafael.bortoli.model;
 
+import com.rafael.bortoli.service.ClubeService;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Clube {
-
+    public Clube(){}
+    public Clube(String nome){
+        this.nome = nome;
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

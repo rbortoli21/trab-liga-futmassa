@@ -13,6 +13,3 @@ insert into clube (nome,derrotas,empates,gols_feitos,gols_sofridos,jogos,pontos,
 insert into clube (nome,derrotas,empates,gols_feitos,gols_sofridos,jogos,pontos,saldo_gols,vitorias) values ('Athletico-PR', 0, 0, 0, 0, 0, 0, 0, 0);
 insert into clube (nome,derrotas,empates,gols_feitos,gols_sofridos,jogos,pontos,saldo_gols,vitorias) values ('Coritiba', 0, 0, 0, 0, 0, 0, 0, 0);
 insert into clube (nome,derrotas,empates,gols_feitos,gols_sofridos,jogos,pontos,saldo_gols,vitorias) values ('Fortaleza', 0, 0, 0, 0, 0, 0, 0, 0);
-
-
-insert into partida (clube_casa_id, clube_fora_id, numero_gols_casa, numero_gols_fora) values (1, 2, 2, 0);

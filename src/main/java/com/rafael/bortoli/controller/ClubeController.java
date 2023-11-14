@@ -2,6 +2,7 @@ package com.rafael.bortoli.controller;
 
 import java.util.List;
 
+import com.rafael.bortoli.dtos.ClubeResponseDto;
 import com.rafael.bortoli.model.Clube;
 import com.rafael.bortoli.service.ClubeService;
 import com.rafael.bortoli.service.ClubeServiceImpl;
@@ -29,8 +30,14 @@ public class ClubeController {
     }
 
     @PostMapping("/saveClube")
-    public String saveEmployee(@ModelAttribute("clube") Clube clube) {
+    public String saveClube(@ModelAttribute("clube") Clube clube) {
         clubeService.save(clube);
+        return "redirect:/";
+    }
+
+    @PostMapping("/editClube/{id}")
+    public String editClube(@PathVariable("id") Long id, @ModelAttribute("clube") Clube clube) {
+        clubeService.edit(id, clube);
         return "redirect:/";
     }
 
@@ -43,8 +50,13 @@ public class ClubeController {
     }
 
     @GetMapping("/deleteClube/{id}")
-    public String deleteClube(@PathVariable(value = "id") long id) {
-        this.clubeService.delete(id);
-        return "redirect:/";
+    public String deleteClube(Model model, @PathVariable(value = "id") long id) {
+        ClubeResponseDto responseDto = clubeService.delete(id);
+
+        List<Clube> clubes = clubeService.getAllSorted();
+        model.addAttribute("listClubes", clubes);
+        model.addAttribute("errors", responseDto.getErrors());
+
+        return "index";
     }
 }
